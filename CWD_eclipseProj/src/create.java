@@ -1,10 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package CWD;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -22,8 +15,8 @@ import java.util.ArrayList;
 public class create {
 
 //РњРµР»РєРёРµ РїРµСЂРµРјРµРЅРЅС‹Рµ
-    private static String fileName = ("AD.csv");
-    private static String fileNameGroups = ("GROUPS.csv");
+    private static String fileName = ("../AD.csv");
+    private static String fileNameGroups = ("../group.csv");
     //РљР»Р°СЃСЃ РїСЂРёСЃСѓС‚СЃС‚РІРёСЏ С„Р°Р№Р»Р°
     
     private static void exists(String fileName) throws FileNotFoundException {
@@ -35,16 +28,17 @@ public class create {
 
     public static void main(String[] args) throws FileNotFoundException {
     	ArrayList<Group> groups = readGroups(fileNameGroups);
-        for (Group str:groups){
-            System.out.print(str.getGroup() + " в специальности " + str.getSpec() + "\n");
-        }
+        /*for (Group str:groups){
+            System.out.print(str.getGroup() + " " + str.getSpec() + "\n");
+        }*/
     	
     	ArrayList<String> text = read(fileName);
         for (String str:text){
-            System.out.print(str);
+        //    System.out.print(str);
             checkGroups(str, groups);
         }
         
+        Logger.statisticsWrite();
         
         
         
@@ -54,7 +48,8 @@ public class create {
     	for (Group str:groups){
             if(student.contains(str.getGroup()))
             {
-               	System.out.print("Студент " + student + "учится в группе " + str.getGroup() + " в специальности " + str.getSpec() + "\n");
+               	CreateFolder.made(student, str.getGroup(),str.getSpec());
+                //System.out.print(student + " " + str.getGroup() + " " + str.getSpec() + "\n");
             }
         }
 		
@@ -83,7 +78,7 @@ public class create {
         String[] study = sb.toString().split(",");
         for (String x : study) {
         	String resultString = x.replaceAll("\\ ||\\,", "");
-        	users.add (resultString+"\n");
+        	users.add (resultString);
         }
 
         return users ;
