@@ -31,13 +31,13 @@ public class create {
     }
 
     public static void main(String[] args) throws FileNotFoundException {
-        ArrayList <String> text = read(fileName);
+        ArrayList<String> text = read(fileName);
         System.out.print(text);
     }
 
     //public static 
 //Класс чтение файла
-    public static ArrayList <String> read(String fileName) throws FileNotFoundException {
+    public static ArrayList<String> read(String fileName) throws FileNotFoundException {
         StringBuilder sb = new StringBuilder();
         exists(fileName);
         try {
@@ -54,12 +54,12 @@ public class create {
         } catch (IOException e) {
             throw new RuntimeException();
         }
-        ArrayList users = new ArrayList <String>();
+        ArrayList users = new ArrayList<String>();
         String[] study = sb.toString().split(",");
         for (String x : study) {
             System.out.println(x);
-            
-            users.add(x+"\n");
+
+            users.add(x + "\n");
         }
         return users;
     }
