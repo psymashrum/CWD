@@ -3,49 +3,47 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-
 public class Logger {
-	
+
 	public static void write(String text) {
-	    //Îןנוהוכÿול פאיכ
-	    File file = new File("../LogCreating.txt");
-	 
-	    try{
+		// Open File
+		File file = new File("../LogCreating.txt");
 
-	        FileWriter sw = new FileWriter(file,true);
+		try {
 
-	        sw.write(text+ "\n");
+			FileWriter sw = new FileWriter(file, true);
 
-	        sw.close();
+			sw.write(text + "\n");
 
-	     }catch(Exception e){
+			sw.close();
 
-	        System.out.print(e.getMessage());
+		} catch (Exception e) {
 
-	    }    
+			System.out.print(e.getMessage());
+
+		}
 	}
-	
-	public static void statisticsWrite()
-	{
-		//Îןנוהוכÿול פאיכ
-	    File file = new File("C:\\LogCreating.txt");
-	 
-	    try{
 
-	        FileWriter sw = new FileWriter(file,true);
+	public static void statisticsWrite() {
+		// WriteFile
+		File file = new File("C:\\LogCreating.txt");
 
-	        sw.write("________________________"+ "\n");
-	        sw.write("_______Statistics_______"+ "\n");
-	        sw.write("________________________"+ "\n");
-	        
-	        sw.write("Speciality errors = "+ Errors.SpectialityErrors + "\n");
-	        sw.write("Students errors = "+ Errors.StudentsErrors + "\n");
-	        sw.close();
+		try {
 
-	     }catch(Exception e){
+			FileWriter sw = new FileWriter(file, true);
 
-	        System.out.print(e.getMessage());
+			sw.write("________________________" + "\n");
+			sw.write("_______Statistics_______" + "\n");
+			sw.write("________________________" + "\n");
 
-	    }
+			sw.write("Speciality errors = " + Errors.SpectialityErrors + "\n");
+			sw.write("Students errors = " + Errors.StudentsErrors + "\n");
+			sw.close();
+
+		} catch (Exception e) {
+
+			System.out.print(e.getMessage());
+
+		}
 	}
 }

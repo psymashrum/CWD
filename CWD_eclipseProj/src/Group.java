@@ -8,24 +8,19 @@ import java.util.ArrayList;
 public class Group {
 	private String group;
 	private String spec;
-	
-	
+
 	public Group(String group, String spec) {
 		super();
 		this.group = group;
 		this.spec = spec;
 	}
 
-
 	public String getGroup() {
 		return group;
 	}
-
 
 	public String getSpec() {
 		return spec;
 	}
 
-
-	
 }
