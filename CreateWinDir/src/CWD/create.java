@@ -32,7 +32,10 @@ public class create {
 
     public static void main(String[] args) throws FileNotFoundException {
         ArrayList<String> text = read(fileName);
-        System.out.print(text);
+        for (String str:text){
+            System.out.print(str);
+            
+        }
     }
 
     //public static 
@@ -57,11 +60,17 @@ public class create {
         ArrayList users = new ArrayList<String>();
         String[] study = sb.toString().split(",");
         for (String x : study) {
-            System.out.println(x);
-
-            users.add(x + "\n");
+            
+            /*for (int i = 0; i < x.length(); i++) {
+             if (x.equals(",") || (x.equals(" "))) {
+                    
+             }*/
+        String resultString = x.replaceAll("\\ ||\\,", "");
+        
+        users.add (resultString+"\n");
+        
         }
-        return users;
-    }
 
+        return users ;
+    }
 }
